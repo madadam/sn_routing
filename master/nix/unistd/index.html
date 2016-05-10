@@ -9,6 +9,7 @@
 
     <title>nix::unistd - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -45,7 +46,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-4936' class='srclink' href='../../src/nix/unistd.rs.html#1-373' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-9887' class='srclink' href='../../src/nix/unistd.rs.html#1-435' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Standard symbolic constants and types</p>
 </div><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
@@ -61,6 +62,14 @@
                     <tr class=' module-item'>
                         <td><a class='fn' href='fn.chdir.html'
                                title='nix::unistd::chdir'>chdir</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.chown.html'
+                               title='nix::unistd::chown'>chown</a></td>
                         <td class='docblock short'>
                              
                         </td>
@@ -115,8 +124,32 @@
                     </tr>
                 
                     <tr class=' module-item'>
+                        <td><a class='fn' href='fn.execv.html'
+                               title='nix::unistd::execv'>execv</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
                         <td><a class='fn' href='fn.execve.html'
                                title='nix::unistd::execve'>execve</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.execvp.html'
+                               title='nix::unistd::execvp'>execvp</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fdatasync.html'
+                               title='nix::unistd::fdatasync'>fdatasync</a></td>
                         <td class='docblock short'>
                              
                         </td>
@@ -131,8 +164,40 @@
                     </tr>
                 
                     <tr class=' module-item'>
+                        <td><a class='fn' href='fn.fsync.html'
+                               title='nix::unistd::fsync'>fsync</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
                         <td><a class='fn' href='fn.ftruncate.html'
                                title='nix::unistd::ftruncate'>ftruncate</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.getegid.html'
+                               title='nix::unistd::getegid'>getegid</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.geteuid.html'
+                               title='nix::unistd::geteuid'>geteuid</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.getgid.html'
+                               title='nix::unistd::getgid'>getgid</a></td>
                         <td class='docblock short'>
                              
                         </td>
@@ -157,6 +222,14 @@
                     <tr class=' module-item'>
                         <td><a class='fn' href='fn.getppid.html'
                                title='nix::unistd::getppid'>getppid</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.getuid.html'
+                               title='nix::unistd::getuid'>getuid</a></td>
                         <td class='docblock short'>
                              
                         </td>
@@ -203,8 +276,32 @@
                     </tr>
                 
                     <tr class=' module-item'>
+                        <td><a class='fn' href='fn.setgid.html'
+                               title='nix::unistd::setgid'>setgid</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
                         <td><a class='fn' href='fn.sethostname.html'
                                title='nix::unistd::sethostname'>sethostname</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.setpgid.html'
+                               title='nix::unistd::setpgid'>setpgid</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.setuid.html'
+                               title='nix::unistd::setuid'>setuid</a></td>
                         <td class='docblock short'>
                              
                         </td>
@@ -268,7 +365,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -284,6 +381,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

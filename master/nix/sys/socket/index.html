@@ -9,6 +9,7 @@
 
     <title>nix::sys::socket - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
 
     
@@ -45,7 +46,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-2037' class='srclink' href='../../../src/nix/sys/socket/mod.rs.html#1-443' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-4131' class='srclink' href='../../../src/nix/sys/socket/mod.rs.html#1-669' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Socket interface functions</p>
 
 <p><a href="http://man7.org/linux/man-pages/man7/socket.7.html">Further reading</a></p>
@@ -60,6 +61,25 @@
                     </tr>
                 </table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.CmsgIterator.html'
+                               title='nix::sys::socket::CmsgIterator'>CmsgIterator</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.CmsgSpace.html'
+                               title='nix::sys::socket::CmsgSpace'>CmsgSpace</a></td>
+                        <td class='docblock short'>
+                             <p>A structure used to make room in a cmsghdr passed to recvmsg. The
+size and alignment match that of a cmsghdr followed by a T, but the
+fields are not accessible, as the actual types will change on a call
+to recvmsg.</p>
+                        </td>
+                    </tr>
+                
                     <tr class=' module-item'>
                         <td><a class='struct' href='struct.Ipv4Addr.html'
                                title='nix::sys::socket::Ipv4Addr'>Ipv4Addr</a></td>
@@ -77,6 +97,30 @@
                     </tr>
                 
                     <tr class=' module-item'>
+                        <td><a class='struct' href='struct.MsgFlags.html'
+                               title='nix::sys::socket::MsgFlags'>MsgFlags</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.NetlinkAddr.html'
+                               title='nix::sys::socket::NetlinkAddr'>NetlinkAddr</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.RecvMsg.html'
+                               title='nix::sys::socket::RecvMsg'>RecvMsg</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
                         <td><a class='struct' href='struct.SockFlag.html'
                                title='nix::sys::socket::SockFlag'>SockFlag</a></td>
                         <td class='docblock short'>
@@ -88,7 +132,10 @@
                         <td><a class='struct' href='struct.UnixAddr.html'
                                title='nix::sys::socket::UnixAddr'>UnixAddr</a></td>
                         <td class='docblock short'>
-                             
+                             <p>A wrapper around sockaddr_un. We track the length of sun_path,
+because it may not be null-terminated (unconnected and abstract
+sockets). Note that the actual sockaddr length is greater by
+size_of::<sa_family_t>().</p>
                         </td>
                     </tr>
                 
@@ -171,6 +218,14 @@
                              
                         </td>
                     </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ucred.html'
+                               title='nix::sys::socket::ucred'>ucred</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
                 </table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
                     <tr class=' module-item'>
@@ -178,6 +233,16 @@
                                title='nix::sys::socket::AddressFamily'>AddressFamily</a></td>
                         <td class='docblock short'>
                              
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.ControlMessage.html'
+                               title='nix::sys::socket::ControlMessage'>ControlMessage</a></td>
+                        <td class='docblock short'>
+                             <p>A type-safe wrapper around a single control message. More types may
+be added to this enum; do not exhaustively pattern-match it.
+<a href="http://man7.org/linux/man-pages/man3/cmsg.3.html">Further reading</a></p>
                         </td>
                     </tr>
                 
@@ -210,7 +275,6 @@
                                title='nix::sys::socket::SockAddr'>SockAddr</a></td>
                         <td class='docblock short'>
                              <p>Represents a socket address</p>
-
                         </td>
                     </tr>
                 
@@ -220,7 +284,6 @@
                         <td class='docblock short'>
                              <p>The protocol level at which to get / set socket options. Used as an
 argument to <code>getsockopt</code> and <code>setsockopt</code>.</p>
-
                         </td>
                     </tr>
                 
@@ -252,6 +315,22 @@ argument to <code>getsockopt</code> and <code>setsockopt</code>.</p>
                     <tr class=' module-item'>
                         <td><a class='constant' href='constant.AF_LOCAL.html'
                                title='nix::sys::socket::AF_LOCAL'>AF_LOCAL</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.AF_NETLINK.html'
+                               title='nix::sys::socket::AF_NETLINK'>AF_NETLINK</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.AF_PACKET.html'
+                               title='nix::sys::socket::AF_PACKET'>AF_PACKET</a></td>
                         <td class='docblock short'>
                              
                         </td>
@@ -378,8 +457,32 @@ argument to <code>getsockopt</code> and <code>setsockopt</code>.</p>
                     </tr>
                 
                     <tr class=' module-item'>
+                        <td><a class='constant' href='constant.MSG_CTRUNC.html'
+                               title='nix::sys::socket::MSG_CTRUNC'>MSG_CTRUNC</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
                         <td><a class='constant' href='constant.MSG_DONTWAIT.html'
                                title='nix::sys::socket::MSG_DONTWAIT'>MSG_DONTWAIT</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.MSG_EOR.html'
+                               title='nix::sys::socket::MSG_EOR'>MSG_EOR</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.MSG_ERRQUEUE.html'
+                               title='nix::sys::socket::MSG_ERRQUEUE'>MSG_ERRQUEUE</a></td>
                         <td class='docblock short'>
                              
                         </td>
@@ -396,6 +499,22 @@ argument to <code>getsockopt</code> and <code>setsockopt</code>.</p>
                     <tr class=' module-item'>
                         <td><a class='constant' href='constant.MSG_PEEK.html'
                                title='nix::sys::socket::MSG_PEEK'>MSG_PEEK</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.MSG_TRUNC.html'
+                               title='nix::sys::socket::MSG_TRUNC'>MSG_TRUNC</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SCM_RIGHTS.html'
+                               title='nix::sys::socket::SCM_RIGHTS'>SCM_RIGHTS</a></td>
                         <td class='docblock short'>
                              
                         </td>
@@ -492,6 +611,14 @@ argument to <code>getsockopt</code> and <code>setsockopt</code>.</p>
                     <tr class=' module-item'>
                         <td><a class='constant' href='constant.SOL_IPV6.html'
                                title='nix::sys::socket::SOL_IPV6'>SOL_IPV6</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SOL_NETLINK.html'
+                               title='nix::sys::socket::SOL_NETLINK'>SOL_NETLINK</a></td>
                         <td class='docblock short'>
                              
                         </td>
@@ -808,7 +935,6 @@ argument to <code>getsockopt</code> and <code>setsockopt</code>.</p>
                         <td class='docblock short'>
                              <p>Represents a socket option that can be accessed or set. Used as an argument
 to <code>getsockopt</code></p>
-
                         </td>
                     </tr>
                 
@@ -818,7 +944,6 @@ to <code>getsockopt</code></p>
                         <td class='docblock short'>
                              <p>Represents a socket option that can be accessed or set. Used as an argument
 to <code>setsockopt</code></p>
-
                         </td>
                     </tr>
                 </table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
@@ -828,7 +953,6 @@ to <code>setsockopt</code></p>
                                title='nix::sys::socket::accept'>accept</a></td>
                         <td class='docblock short'>
                              <p>Accept a connection on a socket</p>
-
                         </td>
                     </tr>
                 
@@ -837,7 +961,6 @@ to <code>setsockopt</code></p>
                                title='nix::sys::socket::accept4'>accept4</a></td>
                         <td class='docblock short'>
                              <p>Accept a connection on a socket</p>
-
                         </td>
                     </tr>
                 
@@ -846,7 +969,6 @@ to <code>setsockopt</code></p>
                                title='nix::sys::socket::bind'>bind</a></td>
                         <td class='docblock short'>
                              <p>Bind a name to a socket</p>
-
                         </td>
                     </tr>
                 
@@ -855,7 +977,6 @@ to <code>setsockopt</code></p>
                                title='nix::sys::socket::connect'>connect</a></td>
                         <td class='docblock short'>
                              <p>Initiate a connection on a socket</p>
-
                         </td>
                     </tr>
                 
@@ -864,7 +985,6 @@ to <code>setsockopt</code></p>
                                title='nix::sys::socket::getpeername'>getpeername</a></td>
                         <td class='docblock short'>
                              <p>Get the address of the peer connected to the socket <code>fd</code>.</p>
-
                         </td>
                     </tr>
                 
@@ -873,7 +993,6 @@ to <code>setsockopt</code></p>
                                title='nix::sys::socket::getsockname'>getsockname</a></td>
                         <td class='docblock short'>
                              <p>Get the current address to which the socket <code>fd</code> is bound.</p>
-
                         </td>
                     </tr>
                 
@@ -882,7 +1001,6 @@ to <code>setsockopt</code></p>
                                title='nix::sys::socket::getsockopt'>getsockopt</a></td>
                         <td class='docblock short'>
                              <p>Get the current value for the requested socket option</p>
-
                         </td>
                     </tr>
                 
@@ -891,7 +1009,6 @@ to <code>setsockopt</code></p>
                                title='nix::sys::socket::listen'>listen</a></td>
                         <td class='docblock short'>
                              <p>Listen for connections on a socket</p>
-
                         </td>
                     </tr>
                 
@@ -901,7 +1018,6 @@ to <code>setsockopt</code></p>
                         <td class='docblock short'>
                              <p>Receive data from a connection-oriented socket. Returns the number of
 bytes read</p>
-
                         </td>
                     </tr>
                 
@@ -911,7 +1027,16 @@ bytes read</p>
                         <td class='docblock short'>
                              <p>Receive data from a connectionless or connection-oriented socket. Returns
 the number of bytes read and the socket address of the sender.</p>
-
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.recvmsg.html'
+                               title='nix::sys::socket::recvmsg'>recvmsg</a></td>
+                        <td class='docblock short'>
+                             <p>Receive message in scatter-gather vectors from a socket, and
+optionally receive ancillary data into the provided buffer.
+If no ancillary data is desired, use () as the type parameter.</p>
                         </td>
                     </tr>
                 
@@ -920,7 +1045,16 @@ the number of bytes read and the socket address of the sender.</p>
                                title='nix::sys::socket::send'>send</a></td>
                         <td class='docblock short'>
                              <p>Send data to a connection-oriented socket. Returns the number of bytes read</p>
-
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='fn' href='fn.sendmsg.html'
+                               title='nix::sys::socket::sendmsg'>sendmsg</a></td>
+                        <td class='docblock short'>
+                             <p>Send data in scatter-gather vectors to a socket, possibly accompanied
+by ancillary data. Optionally direct the message at the given address,
+as with sendto.</p>
                         </td>
                     </tr>
                 
@@ -937,7 +1071,6 @@ the number of bytes read and the socket address of the sender.</p>
                                title='nix::sys::socket::setsockopt'>setsockopt</a></td>
                         <td class='docblock short'>
                              <p>Sets the value for the requested socket option</p>
-
                         </td>
                     </tr>
                 
@@ -946,7 +1079,6 @@ the number of bytes read and the socket address of the sender.</p>
                                title='nix::sys::socket::shutdown'>shutdown</a></td>
                         <td class='docblock short'>
                              <p>Shut down part of a full-duplex connection.</p>
-
                         </td>
                     </tr>
                 
@@ -963,7 +1095,6 @@ the number of bytes read and the socket address of the sender.</p>
                                title='nix::sys::socket::socket'>socket</a></td>
                         <td class='docblock short'>
                              <p>Create an endpoint for communication</p>
-
                         </td>
                     </tr>
                 
@@ -972,7 +1103,6 @@ the number of bytes read and the socket address of the sender.</p>
                                title='nix::sys::socket::socketpair'>socketpair</a></td>
                         <td class='docblock short'>
                              <p>Create a pair of connected sockets</p>
-
                         </td>
                     </tr>
                 </table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
@@ -988,14 +1118,6 @@ the number of bytes read and the socket address of the sender.</p>
                     <tr class=' module-item'>
                         <td><a class='type' href='type.IpMulticastTtl.html'
                                title='nix::sys::socket::IpMulticastTtl'>IpMulticastTtl</a></td>
-                        <td class='docblock short'>
-                             
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='type' href='type.SockMessageFlags.html'
-                               title='nix::sys::socket::SockMessageFlags'>SockMessageFlags</a></td>
                         <td class='docblock short'>
                              
                         </td>
@@ -1051,7 +1173,7 @@ the number of bytes read and the socket address of the sender.</p>
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -1067,6 +1189,6 @@ the number of bytes read and the socket address of the sender.</p>
     <script src="../../../jquery.js"></script>
     <script src="../../../main.js"></script>
     
-    <script async src="../../../search-index.js"></script>
+    <script defer src="../../../search-index.js"></script>
 </body>
 </html>

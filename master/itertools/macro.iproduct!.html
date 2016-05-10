@@ -9,6 +9,7 @@
 
     <title>itertools::iproduct! - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
 
     
@@ -45,29 +46,20 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-3014' class='srclink' href='../src/itertools/lib.rs.html#129-145' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-3543' class='srclink' href='../src/itertools/lib.rs.html#135-151' title='goto source code'>[src]</a></span></h1>
 <pre class='rust macro'>
 <span class='macro'>macro_rules</span><span class='macro'>!</span> <span class='ident'>iproduct</span> {
-    (<span class='kw-2'>@</span><span class='ident'>flatten</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>I</span>:<span class='ident'>expr</span>,) <span class='op'>=&gt;</span> (
-        <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>I</span>
-    );
-    (<span class='kw-2'>@</span><span class='ident'>flatten</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>I</span>:<span class='ident'>expr</span>, <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>J</span>:<span class='ident'>expr</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>K</span>:<span class='ident'>expr</span>,)<span class='op'>*</span>) <span class='op'>=&gt;</span> (
-        <span class='macro'>iproduct</span><span class='macro'>!</span>(<span class='kw-2'>@</span><span class='ident'>flatten</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>crate</span>::<span class='ident'>misc</span>::<span class='ident'>FlatTuples</span>::<span class='ident'>new</span>(<span class='macro'>iproduct</span><span class='macro'>!</span>(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>I</span>, <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>J</span>)), $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>K</span>,)<span class='op'>*</span>)
-    );
-    (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>I</span>:<span class='ident'>expr</span>) <span class='op'>=&gt;</span> (
-        (::<span class='ident'>std</span>::<span class='ident'>iter</span>::<span class='ident'>IntoIterator</span>::<span class='ident'>into_iter</span>(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>I</span>))
-    );
-    (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>I</span>:<span class='ident'>expr</span>, <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>J</span>:<span class='ident'>expr</span>) <span class='op'>=&gt;</span> (
-        <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>crate</span>::<span class='ident'>Product</span>::<span class='ident'>new</span>(<span class='macro'>iproduct</span><span class='macro'>!</span>(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>I</span>), <span class='macro'>iproduct</span><span class='macro'>!</span>(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>J</span>))
-    );
-    (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>I</span>:<span class='ident'>expr</span>, <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>J</span>:<span class='ident'>expr</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>K</span>:<span class='ident'>expr</span>),<span class='op'>+</span>) <span class='op'>=&gt;</span> (
-        <span class='macro'>iproduct</span><span class='macro'>!</span>(<span class='kw-2'>@</span><span class='ident'>flatten</span> <span class='macro'>iproduct</span><span class='macro'>!</span>(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>I</span>, <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>J</span>), $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>K</span>,)<span class='op'>+</span>)
-    );
+    (<span class='kw-2'>@</span><span class='ident'>flatten</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>I</span>:<span class='ident'>expr</span>,) <span class='op'>=&gt;</span> { ... };
+    (<span class='kw-2'>@</span><span class='ident'>flatten</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>I</span>:<span class='ident'>expr</span>, <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>J</span>:<span class='ident'>expr</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>K</span>:<span class='ident'>expr</span>,)<span class='op'>*</span>) <span class='op'>=&gt;</span> { ... };
+    (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>I</span>:<span class='ident'>expr</span>) <span class='op'>=&gt;</span> { ... };
+    (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>I</span>:<span class='ident'>expr</span>, <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>J</span>:<span class='ident'>expr</span>) <span class='op'>=&gt;</span> { ... };
+    (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>I</span>:<span class='ident'>expr</span>, <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>J</span>:<span class='ident'>expr</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>K</span>:<span class='ident'>expr</span>),<span class='op'>+</span>) <span class='op'>=&gt;</span> { ... };
 }</pre>
 <div class='docblock'><p>Create an iterator over the “cartesian product” of iterators.</p>
 
 <p>Iterator element type is like <code>(A, B, ..., E)</code> if formed
 from iterators <code>(I, J, ..., M)</code> with element types <code>I::Item = A</code>, <code>J::Item = B</code>, etc.</p>
+
 <pre class='rust rust-example-rendered'>
 <span class='attribute'>#[<span class='ident'>macro_use</span>]</span> <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>itertools</span>;
 <span class='comment'>// Iterate over the coordinates of a 4 x 4 x 4 grid</span>
@@ -118,7 +110,7 @@ from iterators <code>(I, J, ..., M)</code> with element types <code>I::Item = A<
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -134,6 +126,6 @@ from iterators <code>(I, J, ..., M)</code> with element types <code>I::Item = A<
     <script src="../jquery.js"></script>
     <script src="../main.js"></script>
     
-    <script async src="../search-index.js"></script>
+    <script defer src="../search-index.js"></script>
 </body>
 </html>

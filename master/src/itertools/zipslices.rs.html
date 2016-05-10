@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-0a35038f75765ae4/itertools-0.4.6/src/zipslices.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-88ac128001ac3a9a/itertools-0.4.13/src/zipslices.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>zipslices.rs.html -- source</title>
 
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 
     
@@ -165,6 +166,19 @@
 <span id="123">123</span>
 <span id="124">124</span>
 <span id="125">125</span>
+<span id="126">126</span>
+<span id="127">127</span>
+<span id="128">128</span>
+<span id="129">129</span>
+<span id="130">130</span>
+<span id="131">131</span>
+<span id="132">132</span>
+<span id="133">133</span>
+<span id="134">134</span>
+<span id="135">135</span>
+<span id="136">136</span>
+<span id="137">137</span>
+<span id="138">138</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>cmp</span>;
 
@@ -179,7 +193,11 @@
 
 <span class='doccomment'>/// An iterator which iterates two slices simultaneously.</span>
 <span class='doccomment'>///</span>
-<span class='doccomment'>/// `ZipSlices` acts like a double-ended `.zip()` iterator, but more efficiently.</span>
+<span class='doccomment'>/// `ZipSlices` acts like a double-ended `.zip()` iterator.</span>
+<span class='doccomment'>///</span>
+<span class='doccomment'>/// It was intended to be more efficient than `.zip()`, and it was, then</span>
+<span class='doccomment'>/// rustc changed how it optimizes so it can not promise improved performance</span>
+<span class='doccomment'>/// at this time.</span>
 <span class='doccomment'>///</span>
 <span class='doccomment'>/// Note that elements past the end of the shortest of the two slices are ignored.</span>
 <span class='doccomment'>///</span>
@@ -212,7 +230,8 @@
 }
 
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>U</span><span class='op'>&gt;</span> <span class='ident'>ZipSlices</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>U</span><span class='op'>&gt;</span>
-    <span class='kw'>where</span> <span class='ident'>T</span>: <span class='ident'>Slice</span>, <span class='ident'>U</span>: <span class='ident'>Slice</span>
+    <span class='kw'>where</span> <span class='ident'>T</span>: <span class='ident'>Slice</span>,
+          <span class='ident'>U</span>: <span class='ident'>Slice</span>
 {
     <span class='doccomment'>/// Create a new `ZipSlices` from slices `a` and `b`.</span>
     <span class='doccomment'>///</span>
@@ -232,7 +251,8 @@
 }
 
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>U</span><span class='op'>&gt;</span> <span class='ident'>Iterator</span> <span class='kw'>for</span> <span class='ident'>ZipSlices</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>U</span><span class='op'>&gt;</span>
-    <span class='kw'>where</span> <span class='ident'>T</span>: <span class='ident'>Slice</span>, <span class='ident'>U</span>: <span class='ident'>Slice</span>
+    <span class='kw'>where</span> <span class='ident'>T</span>: <span class='ident'>Slice</span>,
+          <span class='ident'>U</span>: <span class='ident'>Slice</span>
 {
     <span class='kw'>type</span> <span class='ident'>Item</span> <span class='op'>=</span> (<span class='ident'>T</span>::<span class='ident'>Item</span>, <span class='ident'>U</span>::<span class='ident'>Item</span>);
 
@@ -259,7 +279,8 @@
 }
 
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>U</span><span class='op'>&gt;</span> <span class='ident'>DoubleEndedIterator</span> <span class='kw'>for</span> <span class='ident'>ZipSlices</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>U</span><span class='op'>&gt;</span>
-    <span class='kw'>where</span> <span class='ident'>T</span>: <span class='ident'>Slice</span>, <span class='ident'>U</span>: <span class='ident'>Slice</span>
+    <span class='kw'>where</span> <span class='ident'>T</span>: <span class='ident'>Slice</span>,
+          <span class='ident'>U</span>: <span class='ident'>Slice</span>
 {
     <span class='attribute'>#[<span class='ident'>inline</span>(<span class='ident'>always</span>)]</span>
     <span class='kw'>fn</span> <span class='ident'>next_back</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>Self</span>::<span class='ident'>Item</span><span class='op'>&gt;</span> {
@@ -277,14 +298,20 @@
     }
 }
 
-<span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>U</span><span class='op'>&gt;</span> <span class='ident'>ExactSizeIterator</span> <span class='kw'>for</span> <span class='ident'>ZipSlices</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>U</span><span class='op'>&gt;</span> <span class='kw'>where</span> <span class='ident'>T</span>: <span class='ident'>Slice</span>, <span class='ident'>U</span>: <span class='ident'>Slice</span> { }
+<span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>U</span><span class='op'>&gt;</span> <span class='ident'>ExactSizeIterator</span> <span class='kw'>for</span> <span class='ident'>ZipSlices</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>U</span><span class='op'>&gt;</span>
+    <span class='kw'>where</span> <span class='ident'>T</span>: <span class='ident'>Slice</span>,
+          <span class='ident'>U</span>: <span class='ident'>Slice</span>
+{}
 
 <span class='kw'>unsafe</span> <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>U</span><span class='op'>&gt;</span> <span class='ident'>Slice</span> <span class='kw'>for</span> <span class='ident'>ZipSlices</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>U</span><span class='op'>&gt;</span>
-    <span class='kw'>where</span> <span class='ident'>T</span>: <span class='ident'>Slice</span>, <span class='ident'>U</span>: <span class='ident'>Slice</span>
+    <span class='kw'>where</span> <span class='ident'>T</span>: <span class='ident'>Slice</span>,
+          <span class='ident'>U</span>: <span class='ident'>Slice</span>
 {
     <span class='kw'>type</span> <span class='ident'>Item</span> <span class='op'>=</span> (<span class='ident'>T</span>::<span class='ident'>Item</span>, <span class='ident'>U</span>::<span class='ident'>Item</span>);
 
-    <span class='kw'>fn</span> <span class='ident'>len</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>usize</span> { <span class='self'>self</span>.<span class='ident'>len</span> <span class='op'>-</span> <span class='self'>self</span>.<span class='ident'>index</span> }
+    <span class='kw'>fn</span> <span class='ident'>len</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>usize</span> {
+        <span class='self'>self</span>.<span class='ident'>len</span> <span class='op'>-</span> <span class='self'>self</span>.<span class='ident'>index</span>
+    }
 
     <span class='kw'>unsafe</span> <span class='kw'>fn</span> <span class='ident'>get_unchecked</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>i</span>: <span class='ident'>usize</span>) <span class='op'>-&gt;</span> <span class='ident'>Self</span>::<span class='ident'>Item</span> {
         (<span class='self'>self</span>.<span class='ident'>t</span>.<span class='ident'>get_unchecked</span>(<span class='ident'>i</span>),
@@ -335,7 +362,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -351,6 +378,6 @@
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
     
-    <script async src="../../search-index.js"></script>
+    <script defer src="../../search-index.js"></script>
 </body>
 </html>

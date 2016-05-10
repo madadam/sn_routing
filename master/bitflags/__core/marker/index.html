@@ -9,6 +9,7 @@
 
     <title>bitflags::__core::marker - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
 
     
@@ -45,7 +46,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-12323' class='srclink' href='https://doc.rust-lang.org/nightly/core/marker/index.html?gotosrc=12323' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-13215' class='srclink' href='https://doc.rust-lang.org/nightly/core/marker/index.html?gotosrc=13215' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Primitive traits and marker types representing basic &#39;kinds&#39; of types.</p>
 
 <p>Rust types can be classified in various useful ways according to
@@ -60,7 +61,6 @@ intrinsic properties of the type. These classifications, often called
                              <p><code>PhantomData&lt;T&gt;</code> allows you to describe that a type acts as if it stores a value of type <code>T</code>,
 even though it does not. This allows you to inform the compiler about certain safety properties
 of your code.</p>
-
                         </td>
                     </tr>
                 </table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
@@ -70,7 +70,6 @@ of your code.</p>
                                title='bitflags::__core::marker::Copy'>Copy</a></td>
                         <td class='docblock short'>
                              <p>Types that can be copied by simply copying bits (i.e. <code>memcpy</code>).</p>
-
                         </td>
                     </tr>
                 
@@ -78,8 +77,7 @@ of your code.</p>
                         <td><a class='trait' href='trait.Send.html'
                                title='bitflags::__core::marker::Send'>Send</a></td>
                         <td class='docblock short'>
-                             <p>Types able to be transferred across thread boundaries.</p>
-
+                             <p>Types that can be transferred across thread boundaries.</p>
                         </td>
                     </tr>
                 
@@ -88,7 +86,6 @@ of your code.</p>
                                title='bitflags::__core::marker::Sized'>Sized</a></td>
                         <td class='docblock short'>
                              <p>Types with a constant size known at compile-time.</p>
-
                         </td>
                     </tr>
                 
@@ -97,7 +94,6 @@ of your code.</p>
                                title='bitflags::__core::marker::Sync'>Sync</a></td>
                         <td class='docblock short'>
                              <p>Types that can be safely shared between threads when aliased.</p>
-
                         </td>
                     </tr>
                 
@@ -105,12 +101,7 @@ of your code.</p>
                         <td><a class='trait' href='trait.Reflect.html'
                                title='bitflags::__core::marker::Reflect'>Reflect</a></td>
                         <td class='docblock short'>
-                            [<em class='stab unstable'>Unstable</em>] <p>A marker trait indicates a type that can be reflected over. This
-trait is implemented for all types. Its purpose is to ensure that
-when you write a generic function that will employ reflection,
-that must be reflected (no pun intended) in the generic bounds of
-that function. Here is an example:</p>
-
+                            [<em class='stab unstable'>Unstable</em>] <p>Types that can be reflected over.</p>
                         </td>
                     </tr>
                 
@@ -119,7 +110,6 @@ that function. Here is an example:</p>
                                title='bitflags::__core::marker::Unsize'>Unsize</a></td>
                         <td class='docblock short'>
                             [<em class='stab unstable'>Unstable</em>] <p>Types that can be &quot;unsized&quot; to a dynamically sized type.</p>
-
                         </td>
                     </tr>
                 </table></section>
@@ -165,7 +155,7 @@ that function. Here is an example:</p>
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -181,6 +171,6 @@ that function. Here is an example:</p>
     <script src="../../../jquery.js"></script>
     <script src="../../../main.js"></script>
     
-    <script async src="../../../search-index.js"></script>
+    <script defer src="../../../search-index.js"></script>
 </body>
 </html>

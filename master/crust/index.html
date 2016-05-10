@@ -9,6 +9,7 @@
 
     <title>crust - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
 
     <link rel="shortcut icon" href="http://maidsafe.net/img/favicon.ico">
@@ -25,7 +26,7 @@
     
 
     <nav class="sidebar">
-        <a href='../crust/index.html'><img src='https://raw.githubusercontent.com/maidsafe/QA/master/Images/maidsafe_logo.png' alt='' width='100'></a>
+        <a href='../crust/index.html'><img src='https://raw.githubusercontent.com/maidsafe/QA/master/Images/maidsafe_logo.png' alt='logo' width='100'></a>
         <p class='location'></p><script>window.sidebarCurrent = {name: 'crust', ty: 'mod', relpath: '../'};</script>
     </nav>
 
@@ -45,67 +46,82 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-0' class='srclink' href='../src/crust/lib.rs.html#18-107' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-0' class='srclink' href='../src/crust/lib.rs.html#18-98' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'>
 <h1 id='crust' class='section-header'><a href='#crust'>crust</a></h1>
 <p>Reliable peer-to-peer network connections in Rust with NAT traversal.</p>
-</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
-<table><tr><td><code>pub use service::<a class='struct' href='../crust/service/struct.Service.html' title='crust::service::Service'>Service</a>;</code></td></tr><tr><td><code>pub use error::<a class='enum' href='../crust/error/enum.Error.html' title='crust::error::Error'>Error</a>;</code></td></tr><tr><td><code>pub use file_handler::{<a class='struct' href='../crust/file_handler/struct.FileHandler.html' title='crust::file_handler::FileHandler'>FileHandler</a>, <a class='fn' href='../crust/file_handler/fn.current_bin_dir.html' title='crust::file_handler::current_bin_dir'>current_bin_dir</a>, <a class='fn' href='../crust/file_handler/fn.user_app_dir.html' title='crust::file_handler::user_app_dir'>user_app_dir</a>, <a class='fn' href='../crust/file_handler/fn.system_cache_dir.html' title='crust::file_handler::system_cache_dir'>system_cache_dir</a>, <a class='fn' href='../crust/file_handler/fn.exe_file_stem.html' title='crust::file_handler::exe_file_stem'>exe_file_stem</a>, <a class='struct' href='../crust/file_handler/struct.ScopedUserAppDirRemover.html' title='crust::file_handler::ScopedUserAppDirRemover'>ScopedUserAppDirRemover</a>};</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                     <tr class=' module-item'>
-                        <td><a class='mod' href='error/index.html'
-                               title='crust::error'>error</a></td>
+                        <td><a class='struct' href='struct.ConnectionInfoResult.html'
+                               title='crust::ConnectionInfoResult'>ConnectionInfoResult</a></td>
                         <td class='docblock short'>
-                             <p>Defines errors.</p>
-
+                             <p>The result of a <code>Service::prepare_contact_info</code> call.</p>
                         </td>
                     </tr>
                 
                     <tr class=' module-item'>
-                        <td><a class='mod' href='file_handler/index.html'
-                               title='crust::file_handler'>file_handler</a></td>
+                        <td><a class='struct' href='struct.Endpoint.html'
+                               title='crust::Endpoint'>Endpoint</a></td>
                         <td class='docblock short'>
-                             <p>Provides a struct and free functions for working with config files.</p>
-
+                             <p>Enum representing endpoint of supported protocols</p>
                         </td>
                     </tr>
                 
                     <tr class=' module-item'>
-                        <td><a class='mod' href='service/index.html'
-                               title='crust::service'>service</a></td>
+                        <td><a class='struct' href='struct.OurConnectionInfo.html'
+                               title='crust::OurConnectionInfo'>OurConnectionInfo</a></td>
                         <td class='docblock short'>
-                             <p>Module implementing the <code>Service</code> which provides an interface to manage peer-to-peer
-connections.</p>
-
-                        </td>
-                    </tr>
-                </table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
-<table>
-                    <tr class=' module-item'>
-                        <td><a class='struct' href='struct.Connection.html'
-                               title='crust::Connection'>Connection</a></td>
-                        <td class='docblock short'>
-                             <p>Information hold for the connection between a pair of nodes</p>
-
+                             <p>Contact info generated by a call to <code>Service::prepare_contact_info</code>.</p>
                         </td>
                     </tr>
                 
                     <tr class=' module-item'>
-                        <td><a class='struct' href='struct.SocketAddrW.html'
-                               title='crust::SocketAddrW'>SocketAddrW</a></td>
+                        <td><a class='struct' href='struct.PeerId.html'
+                               title='crust::PeerId'>PeerId</a></td>
                         <td class='docblock short'>
-                             <p>Utility struct of SocketAddr for hole punching</p>
-
+                             <p>An identifier of a peer node.</p>
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.Service.html'
+                               title='crust::Service'>Service</a></td>
+                        <td class='docblock short'>
+                             <p>A structure representing a connection manager.</p>
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.SocketAddr.html'
+                               title='crust::SocketAddr'>SocketAddr</a></td>
+                        <td class='docblock short'>
+                             <p>Wrapper around <code>std::net::SocketAddr</code> to enable it to be encoded and decoded.</p>
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.StaticContactInfo.html'
+                               title='crust::StaticContactInfo'>StaticContactInfo</a></td>
+                        <td class='docblock short'>
+                             <p>This struct contains information needed to Bootstrap and for echo-server services</p>
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.TheirConnectionInfo.html'
+                               title='crust::TheirConnectionInfo'>TheirConnectionInfo</a></td>
+                        <td class='docblock short'>
+                             <p>Contact info used to connect to another peer.</p>
                         </td>
                     </tr>
                 </table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
                     <tr class=' module-item'>
-                        <td><a class='enum' href='enum.Endpoint.html'
-                               title='crust::Endpoint'>Endpoint</a></td>
+                        <td><a class='enum' href='enum.Error.html'
+                               title='crust::Error'>Error</a></td>
                         <td class='docblock short'>
-                             <p>Enum representing endpoint of supported protocols</p>
-
+                             <p>Crust&#39;s universal error type.</p>
                         </td>
                     </tr>
                 
@@ -115,16 +131,6 @@ connections.</p>
                         <td class='docblock short'>
                              <p>Enum representing different events that will be sent over the asynchronous channel to the user
 of this module.</p>
-
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='enum' href='enum.Port.html'
-                               title='crust::Port'>Port</a></td>
-                        <td class='docblock short'>
-                             <p>Enum representing port of supported protocols</p>
-
                         </td>
                     </tr>
                 
@@ -133,28 +139,24 @@ of this module.</p>
                                title='crust::Protocol'>Protocol</a></td>
                         <td class='docblock short'>
                              <p>Enum representing supported transport protocols</p>
-
+                        </td>
+                    </tr>
+                </table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DEFAULT_BEACON_PORT.html'
+                               title='crust::DEFAULT_BEACON_PORT'>DEFAULT_BEACON_PORT</a></td>
+                        <td class='docblock short'>
+                             <p>Default beacon (service discovery) port.</p>
                         </td>
                     </tr>
                 </table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
                     <tr class=' module-item'>
-                        <td><a class='fn' href='fn.getifaddrs.html'
-                               title='crust::getifaddrs'>getifaddrs</a></td>
+                        <td><a class='fn' href='fn.read_config_file.html'
+                               title='crust::read_config_file'>read_config_file</a></td>
                         <td class='docblock short'>
-                             <p>For non-Windows operating system, use this function to get address</p>
-
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='fn' href='fn.ifaddrs_if_unspecified.html'
-                               title='crust::ifaddrs_if_unspecified'>ifaddrs_if_unspecified</a></td>
-                        <td class='docblock short'>
-                             <p>This function should really take IpAddr as an argument
-but it is used outside of this library and IpAddr
-is currently considered experimental.</p>
-
+                             <p>Reads the default crust config file.</p>
                         </td>
                     </tr>
                 
@@ -163,7 +165,6 @@ is currently considered experimental.</p>
                                title='crust::write_config_file'>write_config_file</a></td>
                         <td class='docblock short'>
                              <p>Writes a Crust config file <strong>for use by tests and examples</strong>.</p>
-
                         </td>
                     </tr>
                 </table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
@@ -173,10 +174,10 @@ is currently considered experimental.</p>
                                title='crust::CrustEventSender'>CrustEventSender</a></td>
                         <td class='docblock short'>
                              <p>Crust Observers will be informed of crust events on this</p>
-
                         </td>
                     </tr>
-                </table></section>
+                </table><h2 id='impls' class='section-header'><a href="#impls">Implementations</a></h2>
+<table></table></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -219,7 +220,7 @@ is currently considered experimental.</p>
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -235,6 +236,6 @@ is currently considered experimental.</p>
     <script src="../jquery.js"></script>
     <script src="../main.js"></script>
     
-    <script async src="../search-index.js"></script>
+    <script defer src="../search-index.js"></script>
 </body>
 </html>

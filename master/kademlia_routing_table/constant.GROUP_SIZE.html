@@ -9,6 +9,7 @@
 
     <title>kademlia_routing_table::GROUP_SIZE - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
 
     <link rel="shortcut icon" href="http://maidsafe.net/img/favicon.ico">
@@ -25,7 +26,7 @@
     
 
     <nav class="sidebar">
-        <a href='../kademlia_routing_table/index.html'><img src='https://raw.githubusercontent.com/maidsafe/QA/master/Images/maidsafe_logo.png' alt='' width='100'></a>
+        <a href='../kademlia_routing_table/index.html'><img src='https://raw.githubusercontent.com/maidsafe/QA/master/Images/maidsafe_logo.png' alt='logo' width='100'></a>
         <p class='location'><a href='index.html'>kademlia_routing_table</a></p><script>window.sidebarCurrent = {name: 'GROUP_SIZE', ty: 'constant', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
@@ -45,8 +46,11 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-9' class='srclink' href='../src/kademlia_routing_table/lib.rs.html#59' title='goto source code'>[src]</a></span></h1>
-<pre class='rust const'>pub const GROUP_SIZE: <a href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><code> = </code><code>8</code></pre><div class='docblock'><p>Defines the size of close group</p>
+        </span><a id='src-92' class='srclink' href='../src/kademlia_routing_table/lib.rs.html#154' title='goto source code'>[src]</a></span></h1>
+<pre class='rust const'>pub const GROUP_SIZE: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a><code> = </code><code>8</code></pre><div class='docblock'><p>The size of a close group.</p>
+
+<p>The <code>GROUP_SIZE</code> XOR-closest nodes to an address constitute the <em>close group</em> with that
+address.</p>
 </div></section>
     <section id='search' class="content hidden"></section>
 
@@ -90,7 +94,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -106,6 +110,6 @@
     <script src="../jquery.js"></script>
     <script src="../main.js"></script>
     
-    <script async src="../search-index.js"></script>
+    <script defer src="../search-index.js"></script>
 </body>
 </html>

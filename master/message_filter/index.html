@@ -9,6 +9,7 @@
 
     <title>message_filter - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
 
     <link rel="shortcut icon" href="http://maidsafe.net/img/favicon.ico">
@@ -25,7 +26,7 @@
     
 
     <nav class="sidebar">
-        <a href='../message_filter/index.html'><img src='https://raw.githubusercontent.com/maidsafe/QA/master/Images/maidsafe_logo.png' alt='' width='100'></a>
+        <a href='../message_filter/index.html'><img src='https://raw.githubusercontent.com/maidsafe/QA/master/Images/maidsafe_logo.png' alt='logo' width='100'></a>
         <p class='location'></p><script>window.sidebarCurrent = {name: 'message_filter', ty: 'mod', relpath: '../'};</script>
     </nav>
 
@@ -45,7 +46,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-0' class='srclink' href='../src/message_filter/lib.rs.html#18-408' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-0' class='srclink' href='../src/message_filter/lib.rs.html#18-464' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'>
 <h1 id='message-filter' class='section-header'><a href='#message-filter'>Message Filter</a></h1>
 <p>A size or time based message filter that takes any generic type as a key and will drop keys
@@ -55,7 +56,8 @@ stage.</p>
 
 <p>This library can be used by network based systems to filter previously seen messages.</p>
 
-<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1><pre class='rust rust-example-rendered'>
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
 <span class='kw'>use</span> ::<span class='ident'>message_filter</span>::<span class='ident'>MessageFilter</span>;
 
 <span class='comment'>// Construct a `MessageFilter` of `u8`s, limited by message count</span>
@@ -63,7 +65,7 @@ stage.</p>
 <span class='kw'>let</span> <span class='ident'>message_filter</span> <span class='op'>=</span> <span class='ident'>MessageFilter</span>::<span class='op'>&lt;</span><span class='ident'>u8</span><span class='op'>&gt;</span>::<span class='ident'>with_capacity</span>(<span class='ident'>max_count</span>);
 
 <span class='comment'>// Construct a `MessageFilter` of `String`s, limited by expiry time</span>
-<span class='kw'>let</span> <span class='ident'>time_to_live</span> <span class='op'>=</span> ::<span class='ident'>time</span>::<span class='ident'>Duration</span>::<span class='ident'>milliseconds</span>(<span class='number'>100</span>);
+<span class='kw'>let</span> <span class='ident'>time_to_live</span> <span class='op'>=</span> ::<span class='ident'>std</span>::<span class='ident'>time</span>::<span class='ident'>Duration</span>::<span class='ident'>from_millis</span>(<span class='number'>100</span>);
 <span class='kw'>let</span> <span class='ident'>message_filter</span> <span class='op'>=</span> <span class='ident'>MessageFilter</span>::<span class='op'>&lt;</span><span class='ident'>String</span><span class='op'>&gt;</span>::<span class='ident'>with_expiry_duration</span>(<span class='ident'>time_to_live</span>);
 
 <span class='comment'>// Construct a `MessageFilter` of `Vec&lt;u8&gt;`s, limited by message count and expiry time</span>
@@ -76,7 +78,6 @@ stage.</p>
                                title='message_filter::MessageFilter'>MessageFilter</a></td>
                         <td class='docblock short'>
                              <p>Implementation of <a href="index.html#message-filter">message filter</a>.</p>
-
                         </td>
                     </tr>
                 </table></section>
@@ -122,7 +123,7 @@ stage.</p>
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
@@ -138,6 +139,6 @@ stage.</p>
     <script src="../jquery.js"></script>
     <script src="../main.js"></script>
     
-    <script async src="../search-index.js"></script>
+    <script defer src="../search-index.js"></script>
 </body>
 </html>
